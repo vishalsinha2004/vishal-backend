@@ -53,9 +53,9 @@ class SystemOS(models.Model):
 
 # --- NEW: About Us / Profile Model ---
 class AboutMe(models.Model):
-    profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
-    name = models.CharField(max_length=100, default="Vishal Sinha")
-    description = models.TextField(blank=True, null=True, help_text="Detailed about me description")
+    profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
     
     # Social Links
     github_url = models.URLField(blank=True, null=True)
@@ -63,7 +63,9 @@ class AboutMe(models.Model):
     x_url = models.URLField(blank=True, null=True, help_text="Twitter / X URL")
     instagram_url = models.URLField(blank=True, null=True)
     facebook_url = models.URLField(blank=True, null=True)
-    
+    email = models.EmailField(max_length=255, blank=True, null=True, help_text="Contact email address")
+
+    resume = models.FileField(upload_to='resumes/', blank=True, null=True, help_text="Upload your Resume/CV (PDF recommended)")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
