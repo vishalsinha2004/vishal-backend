@@ -8,4 +8,6 @@ urlpatterns = [
     
     # --- NEW: About Us Endpoint ---
     path('about-us/', views.get_about_me, name='get_about_me'),
+    path('ai-search/', views.GroqAISearchView.as_view(), name='ai-search'),
+    path('voice-assistant/', views.GroqVoiceAssistantView.as_view(), name='voice-assistant'),
 ]
